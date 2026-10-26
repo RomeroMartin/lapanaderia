@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Green Garden — Visor de carta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:"GG Display";src:url("/_blob/b5c5d8af533920afa32919ad848c00be") format("opentype");font-display:swap}
+@font-face{font-family:"GG Sans";src:url("/_blob/c258e0b84fe5c8021801fe586f04bdc4") format("opentype");font-display:swap}
+@font-face{font-family:"GG Italic";src:url("/_blob/329f0a2a481caeae8a951401c39e1ec8") format("opentype");font-display:swap}
+body{margin:0}
+.gg-strip{scrollbar-width:none}
+.gg-strip::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div role="dialog" aria-label="Visor de la carta" style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; background: #001f1c; color: #F6F1E6; font-family: 'GG Sans', 'Myriad Pro', sans-serif">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 12px 14px 20px; border-bottom: 1px solid rgba(214,179,106,0.25)">
+<div style="display: flex; flex-direction: column; min-width: 0">
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 18px; letter-spacing: 0.06em">Almuerzos &amp; Cenas</span>
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 15px; color: #d6b36a">Página {{current}} de {{total}}</span>
+</div>
+<a href="Menu.dc.html" aria-label="Cerrar visor" style="flex: none; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(214,179,106,0.5); border-radius: 2px; color: #F6F1E6">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</a>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 16px">
+<div style="position: relative; height: 100%; max-width: 100%; aspect-ratio: 1 / 1.414; background: #FBF8F1; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/e1c7f86382d5b37b0a745f093afdfbc0" alt="" aria-hidden="true" style="width: 26%; opacity: 0.15">
+<span style="position: absolute; left: 14px; bottom: 14px; color: #5A4A2A; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase">{{file}}</span>
+</div>
+</div>
+<p style="margin: 0 0 10px; text-align: center; font-size: 13px; color: #B9C7C2">Deslizá para pasar de página · pellizcá para hacer zoom</p>
+<div class="gg-strip" style="display: flex; gap: 6px; padding: 0 20px 12px; overflow-x: auto">
+<sc-for list="{{thumbs}}" as="th" hint-placeholder-count="17">
+<button type="button" onClick="{{th.pick}}" aria-label="Ir a la página {{th.n}}" style="flex: none; width: 34px; height: 48px; padding: 0; background: #FBF8F1; border: 2px solid {{th.border}}; opacity: {{th.opacity}}; cursor: pointer; font-family: 'GG Sans', sans-serif; font-size: 11px; color: #5A4A2A">{{th.n}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: rgba(214,179,106,0.25); border-top: 1px solid rgba(214,179,106,0.25)">
+<button type="button" onClick="{{prev}}" style="min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #001f1c; color: #F6F1E6; border: 0; font-family: 'GG Sans', sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+Anterior</button>
+<button type="button" onClick="{{next}}" style="min-height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #001f1c; color: #F6F1E6; border: 0; font-family: 'GG Sans', sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer">Siguiente
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { i: 0 };
+}
+renderVals() {
+const total = 17;
+const i = this.state.i;
+const thumbs = [];
+for (let k = 0; k < total; k++) {
+const sel = k === i;
+thumbs.push({ n: k + 1, border: sel ? '#d6b36a' : 'transparent', opacity: sel ? 1 : 0.55, pick: () => this.setState({ i: k }) });
+}
+return {
+current: i + 1,
+total: total,
+file: 'menu' + String(i + 1).padStart(2, '0') + '.webp',
+thumbs: thumbs,
+prev: () => this.setState({ i: Math.max(0, this.state.i - 1) }),
+next: () => this.setState({ i: Math.min(total - 1, this.state.i + 1) })
+};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Green Garden — Menú</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:"GG Display";src:url("/_blob/b5c5d8af533920afa32919ad848c00be") format("opentype");font-display:swap}
+@font-face{font-family:"GG Sans";src:url("/_blob/c258e0b84fe5c8021801fe586f04bdc4") format("opentype");font-display:swap}
+@font-face{font-family:"GG Italic";src:url("/_blob/329f0a2a481caeae8a951401c39e1ec8") format("opentype");font-display:swap}
+body{margin:0}
+a{color:#7A5C22}a:hover{color:#002f2a}
+.gg-root{container-type:inline-size}
+.gg-desk{display:none !important}
+.gg-pages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@container (min-width: 900px){
+.gg-desk{display:flex !important}
+.gg-mob{display:none !important}
+.gg-pages{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+}
+.gg-tabs{scrollbar-width:none}
+.gg-tabs::-webkit-scrollbar{display:none}
+.gg-root a:focus-visible,.gg-root button:focus-visible{outline:2px solid #d6b36a;outline-offset:3px}
+</style>
+</helmet>
+<div class="gg-root" style="font-family: 'GG Sans', 'Myriad Pro', 'Segoe UI', sans-serif; color: #141414; background: #F6F1E6; min-width: 0; line-height: 1.5">
+
+<header style="position: sticky; top: 0; z-index: 20; background: #002f2a; border-bottom: 1px solid rgba(214,179,106,0.28)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5cqi, 48px); height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="Main.dc.html" aria-label="Green Garden, ir al inicio" style="display: block; flex: none">
+<img src="/_blob/22f745a6e3ccf9dfee36aa17c22016fe" alt="Green Garden" style="height: 54px; width: auto; display: block">
+</a>
+<nav class="gg-desk" aria-label="Principal" style="align-items: center; gap: 36px">
+<a href="Main.dc.html" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase">Inicio</a>
+<a href="Menu.dc.html" aria-current="page" style="color: #d6b36a; text-decoration: none; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; padding: 6px 0; border-bottom: 1px solid #d6b36a">Menú</a>
+<a href="Playroom.dc.html" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase">Playroom</a>
+<a href="Nosotros.dc.html" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase">Nosotros</a>
+<a href="#contacto" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase">Contacto</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 18px">
+<div class="gg-desk" style="align-items: center; gap: 8px; color: #B9C7C2; font-size: 13px; letter-spacing: 0.04em">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{dotColor}}"></span>
+<span>{{statusText}}</span>
+</div>
+<a href="tel:+542214895239" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #d6b36a; color: #002f2a; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>
+Reservar
+</a>
+<button type="button" class="gg-mob" onClick="{{toggleMenu}}" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(214,179,106,0.5); border-radius: 2px; color: #F6F1E6; cursor: pointer; padding: 0">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+</sc-if>
+</button>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav class="gg-mob" aria-label="Menú móvil" style="display: flex; flex-direction: column; padding: 8px clamp(20px, 5cqi, 48px) 28px; background: #002f2a; border-top: 1px solid rgba(214,179,106,0.2)">
+<a href="Main.dc.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.06em">Inicio <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="Menu.dc.html" aria-current="page" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #d6b36a; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.06em">Menú <span style="color: #d6b36a; font-size: 18px">●</span></a>
+<a href="Playroom.dc.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.06em">Playroom <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="Nosotros.dc.html" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.06em">Nosotros <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="#contacto" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 26px; letter-spacing: 0.06em">Contacto <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<div style="display: flex; align-items: center; gap: 8px; margin-top: 22px; color: #B9C7C2; font-size: 15px">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{dotColor}}"></span>
+<span>{{statusText}} · Todos los días 08:00 — 02:00</span>
+</div>
+</nav>
+</sc-if>
+</header>
+
+<section style="position: relative; overflow: hidden; background: #002f2a; color: #F6F1E6">
+<img src="/_blob/a9ec58f443031172738a3a49fead2f84" alt="" aria-hidden="true" style="position: absolute; right: -10%; top: -20%; width: 60%; max-width: 620px; opacity: 0.05; pointer-events: none">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: clamp(48px, 7cqi, 96px) clamp(20px, 5cqi, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #d6b36a">Platos caseros, a toda hora</span>
+<h1 style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(42px, 6cqi, 80px); line-height: 1.02; letter-spacing: 0.04em; color: #F6F1E6">Nuestro menú</h1>
+<div style="display: flex; align-items: center; gap: 10px" aria-hidden="true">
+<span style="width: 56px; height: 1px; background: #d6b36a"></span>
+<span style="width: 8px; height: 8px; background: #d6b36a; transform: rotate(45deg)"></span>
+<span style="width: 56px; height: 1px; background: #d6b36a"></span>
+</div>
+<p style="margin: 0; max-width: 32em; font-size: clamp(16px, 1.5cqi, 19px); line-height: 1.6; color: #C9D3CF">Platos caseros con los mejores ingredientes, disponibles en todos los horarios del día.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 6px">
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(214,179,106,0.5); border-radius: 999px; font-size: 13px; color: #F6F1E6">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V8M12 8c-1.8-.8-2.8-2.6-2.8-4.5 1.8 0 2.8 1.2 2.8 2.7 0-1.5 1-2.7 2.8-2.7 0 1.9-1 3.7-2.8 4.5zM12 13c-1.8-1.2-3.6-1.2-4.8-2.8M12 13c1.8-1.2 3.6-1.2 4.8-2.8M4 4l16 16"></path></svg>
+Sin TACC / sin gluten</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(214,179,106,0.5); border-radius: 999px; font-size: 13px; color: #F6F1E6">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+Apto celíacos</span>
+</div>
+</div>
+</section>
+
+<div style="position: sticky; top: 76px; z-index: 15; background: #F6F1E6; border-bottom: 1px solid #E3D9C3">
+<div class="gg-tabs" role="tablist" aria-label="Categorías del menú" style="max-width: 1200px; margin: 0 auto; padding: 12px clamp(20px, 5cqi, 48px); display: flex; gap: 8px; overflow-x: auto">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="flex: none; display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px; background: {{t.bg}}; color: {{t.fg}}; border: 1px solid #002f2a; border-radius: 2px; font-family: 'GG Sans', sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; white-space: nowrap">{{t.label}}<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 15px; letter-spacing: 0; text-transform: none; color: {{t.countColor}}">{{t.count}} pág.</span></button>
+</sc-for>
+</div>
+</div>
+
+<section aria-labelledby="cat-titulo" style="background: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(32px, 5cqi, 64px) clamp(20px, 5cqi, 48px) clamp(56px, 8cqi, 104px); display: flex; flex-direction: column; gap: clamp(24px, 3cqi, 40px)">
+<div style="position: relative; min-height: clamp(200px, 24cqi, 300px); background: #0b3f39; outline: 1px solid rgba(214,179,106,0.45); outline-offset: -12px; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(24px, 3.5cqi, 44px); box-sizing: border-box; overflow: hidden">
+<img src="/_blob/a9ec58f443031172738a3a49fead2f84" alt="" aria-hidden="true" style="position: absolute; right: 6%; top: 50%; transform: translateY(-50%); width: clamp(110px, 18cqi, 220px); opacity: 0.22">
+<span style="position: absolute; top: 26px; right: 26px; color: #B9C7C2; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · {{cat.banner}}</span>
+<span style="position: relative; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 18px; color: #d6b36a">{{cat.time}}</span>
+<h2 id="cat-titulo" style="position: relative; margin: 6px 0 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 4.4cqi, 54px); line-height: 1.05; letter-spacing: 0.05em; color: #F6F1E6">{{cat.title}}</h2>
+<sc-if value="{{isTacc}}" hint-placeholder-val="{{ false }}">
+<span style="position: relative; align-self: flex-start; margin-top: 14px; padding: 5px 12px; background: #d6b36a; color: #002f2a; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px">Apto celíacos</span>
+</sc-if>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px">
+<p style="margin: 0; font-size: 16px; color: #3F3F3A">{{cat.count}} páginas · Tocá una página para verla en grande.</p>
+<p style="margin: 0; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 17px; color: #7A5C22">Precios sujetos a modificación</p>
+</div>
+<ol class="gg-pages" style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{pages}}" as="pg" hint-placeholder-count="8">
+<li style="min-width: 0">
+<a href="MenuVisor.dc.html" aria-label="Ver {{pg.label}} en grande" style="display: flex; flex-direction: column; gap: 10px; color: #141414; text-decoration: none">
+<span style="position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1 / 1.414; background: #FBF8F1; border: 1px solid #E3D9C3">
+<img src="/_blob/e1c7f86382d5b37b0a745f093afdfbc0" alt="" aria-hidden="true" style="width: 28%; opacity: 0.15">
+<span style="position: absolute; left: 10px; right: 10px; bottom: 10px; color: #5A4A2A; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; overflow-wrap: anywhere">{{pg.file}}</span>
+<span style="position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: #002f2a; color: #d6b36a; border-radius: 50%">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6"></circle><path d="M20 20l-4.5-4.5M11 8.5v5M8.5 11h5"></path></svg>
+</span>
+</span>
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3F3F3A">Página<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 18px; letter-spacing: 0; color: #7A5C22">{{pg.num}}</span></span>
+</a>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<section style="background: #002f2a; color: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(48px, 7cqi, 88px) clamp(20px, 5cqi, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px">
+<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #d6b36a">¿Ya elegiste?</span>
+<h2 style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 3.6cqi, 42px); line-height: 1.08; letter-spacing: 0.05em">Reservá tu mesa</h2>
+<p style="margin: 0; font-size: 16px; color: #C9D3CF">Abiertos todos los días de 08:00 a 02:00 hs.</p>
+</div>
+<div style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 12px">
+<a href="tel:+542214895239" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px; background: #d6b36a; color: #002f2a; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">Llamar · 0221 489-5239</a>
+<a href="Playroom.dc.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border: 1px solid rgba(214,179,106,0.6); color: #F6F1E6; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">Ver Playroom</a>
+</div>
+</div>
+</section>
+
+<footer id="contacto" style="background: #000000; color: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(56px, 7cqi, 88px) clamp(20px, 5cqi, 48px) 28px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between">
+<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 16px; max-width: 340px">
+<img src="/_blob/22f745a6e3ccf9dfee36aa17c22016fe" alt="Green Garden" style="width: 180px; height: auto; display: block">
+<p style="margin: 0; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; line-height: 1.4; color: #d6b36a">Nuestra casa, tu lugar.</p>
+</div>
+<div style="flex: 2 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">Contacto</span>
+<a href="tel:+542214895239" style="color: #F6F1E6; text-decoration: none; font-size: 15px">0221 489-5239</a>
+<a href="mailto:greengardenlaplata@gmail.com" style="color: #F6F1E6; text-decoration: none; font-size: 15px; overflow-wrap: anywhere">greengardenlaplata@gmail.com</a>
+<a href="https://instagram.com/greengardenlaplata" style="color: #F6F1E6; text-decoration: none; font-size: 15px">@greengardenlaplata</a>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">Dirección</span>
+<span style="font-size: 15px; line-height: 1.5; color: #D9D4C8">Diag. 74 1618<br>La Plata, Buenos Aires</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">Horarios</span>
+<span style="font-size: 15px; line-height: 1.5; color: #D9D4C8">Lunes a domingo<br>08:00 — 02:00 hs</span>
+</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px" aria-hidden="true">
+<span style="flex: 1 1 auto; height: 1px; background: rgba(214,179,106,0.4)"></span>
+<span style="width: 8px; height: 8px; background: #d6b36a; transform: rotate(45deg)"></span>
+<span style="flex: 1 1 auto; height: 1px; background: rgba(214,179,106,0.4)"></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #A8A397">
+<span>© {{year}} Green Garden. Todos los derechos reservados.</span>
+<span>Desarrollado por <a href="https://martinromerostudio.com.ar" style="color: #D9D4C8">Martin Romero Studio</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { menuOpen: false, tab: 'almuerzo' };
+}
+renderVals() {
+const h = new Date().getHours();
+const isOpen = h >= 8 || h < 2;
+const menuOpen = this.state.menuOpen;
+const cats = {
+almuerzo: { title: 'Almuerzos & Cenas', label: 'Almuerzos & Cenas', time: 'Mediodía y noche', count: 17, prefix: 'menu', banner: 'almuerzo.webp' },
+merienda: { title: 'Desayunos & Meriendas', label: 'Desayunos & Meriendas', time: 'Mañana y tarde', count: 4, prefix: 'merienda', banner: 'merienda.webp' },
+sintacc: { title: 'Menú Sin TACC', label: 'Sin TACC', time: 'Todos los horarios', count: 2, prefix: 'menutacc', banner: 'sintacc.webp' }
+};
+const tab = this.state.tab;
+const cat = cats[tab];
+const tabs = Object.keys(cats).map((k) => {
+const sel = k === tab;
+return {
+label: cats[k].label,
+count: cats[k].count,
+selected: sel,
+bg: sel ? '#002f2a' : 'transparent',
+fg: sel ? '#F6F1E6' : '#002f2a',
+countColor: sel ? '#d6b36a' : '#7A5C22',
+pick: () => this.setState({ tab: k })
+};
+});
+const pages = [];
+for (let i = 1; i <= cat.count; i++) {
+const n = String(i).padStart(2, '0');
+pages.push({ num: n, label: 'página ' + i + ' de ' + cat.count, file: cat.prefix + n + '.webp' });
+}
+return {
+menuOpen: menuOpen,
+menuClosed: !menuOpen,
+menuLabel: menuOpen ? 'Cerrar menú' : 'Abrir menú',
+toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+closeMenu: () => this.setState({ menuOpen: false }),
+statusText: isOpen ? 'Abierto ahora' : 'Cerrado · abre 08:00',
+dotColor: isOpen ? '#6FCF97' : '#C9A24E',
+tabs: tabs,
+cat: cat,
+isTacc: tab === 'sintacc',
+pages: pages,
+year: new Date().getFullYear()
+};
+}
+}
+</script>
+</body>
+</html>
