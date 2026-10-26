@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Green Garden — Menú</title>
+  <meta name="description" content="Menú de Green Garden La Plata — Almuerzos, cenas, desayunos, meriendas y opciones sin TACC.">
+  <link rel="icon" href="img/favicon.jpeg" type="image/x-icon">
+  <link rel="canonical" href="https://www.greengarden.com.ar/menu.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Green Garden — Menú">
+  <meta property="og:description" content="Almuerzos, cenas, desayunos, meriendas y opciones sin TACC en La Plata.">
+  <meta property="og:url" content="https://www.greengarden.com.ar/menu.html">
+  <meta property="og:image" content="https://www.greengarden.com.ar/img/almuerzo.webp">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Green Garden">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.greengarden.com.ar/img/almuerzo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    :root{
+      --beige:#F7F2E8;--beige-mid:#EDE5D0;--beige-deep:#DDD0B3;
+      --sage-pale:#D4E4D0;--sage:#8BB89A;--sage-mid:#6A9E7B;--sage-deep:#3D6B4F;
+      --green-dark:#244033;--white:#FDFAF5;--text:#1E2E23;--text-muted:#5C7A65;--radius:12px;
+    }
+
+
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;height:68px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,box-shadow .3s}
+    .navbar.solid{background:rgba(36,64,51,.97);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+
+    .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,.12);color:#fff}
+    .nav-cta:hover{background:var(--sage-deep)!important}
+
+    
+    .mobile-menu a{color:rgba(255,255,255,.8);text-decoration:none;font-size:1.1rem;font-weight:300;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.08);display:block}
+
+
+
+    
+    @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.site-footer{flex-direction:column;align-items:flex-start}.footer-right{text-align:left}}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--green-dark);padding:8rem 5vw 4rem;text-align:center;position:relative;overflow:hidden}
+    .ph-bg{position:absolute;inset:0;background-image:linear-gradient(to bottom,rgba(36,64,51,.88) 0%,rgba(36,64,51,.70) 100%),url('img/almuerzo.webp');background-size:cover;background-position:center}
+    .ph-content-wrap{position:relative;z-index:2}
+    .page-header h1{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);color:var(--white);font-weight:400;margin-bottom:.75rem}
+    .page-header p{color:rgba(255,255,255,.5);font-size:.95rem;font-weight:300;max-width:500px;margin:0 auto}
+
+    /* TABS */
+    .menu-tabs-wrap{background:var(--green-dark);padding:0 5vw 2rem;position:sticky;top:68px;z-index:50}
+    .menu-tabs{display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid rgba(139,184,154,.12);padding-bottom:0}
+    .tab-btn{background:transparent;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,.5);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:400;padding:.75rem 1.25rem;cursor:pointer;transition:color .2s,border-color .2s;margin-bottom:-1px;display:flex;align-items:center;gap:.5rem}
+    .tab-btn:hover{color:rgba(255,255,255,.85)}
+    .tab-btn.active{color:var(--white);border-bottom-color:var(--sage)}
+    .tab-pill{background:rgba(139,184,154,.15);border-radius:20px;padding:.1rem .55rem;font-size:.72rem;color:var(--sage-pale)}
+    .tab-pill.tacc{background:rgba(212,228,208,.12);color:var(--sage-pale)}
+
+    /* GALLERY SECTIONS */
+    .menu-content{padding:3rem 5vw 5rem}
+    .menu-section-block{display:none}
+    .menu-section-block.active{display:block}
+
+    .section-intro{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.5rem;padding:1.5rem;background:var(--white);border-radius:var(--radius);border:1px solid var(--beige-deep)}
+    .si-img{width:80px;height:80px;border-radius:10px;overflow:hidden;flex-shrink:0}
+    .si-img img{width:100%;height:100%;object-fit:cover}
+    .si-text h2{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;color:var(--green-dark);margin-bottom:.3rem}
+    .si-text p{font-size:.85rem;color:var(--text-muted);font-weight:300}
+    .tacc-badge-large{display:inline-flex;align-items:center;gap:.4rem;background:var(--sage-pale);border-radius:20px;padding:.3rem .85rem;font-size:.78rem;color:var(--sage-deep);font-weight:500;margin-bottom:.5rem}
+
+    /* PHOTO GRID */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+    @media(max-width:600px){.gallery-grid{grid-template-columns:1fr;gap:.75rem;max-width:420px;margin:0 auto}.gallery-grid.gallery-wide{grid-template-columns:1fr}}
+
+    .menu-thumb{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;background:var(--beige-mid);display:block;text-decoration:none}
+    .menu-thumb--wide{aspect-ratio:3/2}
+    .menu-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+    .menu-thumb:hover img{transform:scale(1.04)}
+    .menu-thumb-overlay{position:absolute;inset:0;background:rgba(36,64,51,0);display:flex;align-items:center;justify-content:center;transition:background .25s;opacity:0}
+    .menu-thumb:hover .menu-thumb-overlay{background:rgba(36,64,51,.45);opacity:1}
+    .menu-thumb-overlay span{font-size:2rem;color:var(--white);transform:scale(.7);transition:transform .25s}
+    .menu-thumb:hover .menu-thumb-overlay span{transform:scale(1)}
+    .menu-img-ph.tacc:hover{background:var(--sage-pale);border-color:var(--sage-mid)}
+
+    .menu-img-ph.tacc .ph-icon::after{content:''}
+
+    /* Real photos cuando se incrusten */
+    .gallery-grid a{display:block;border-radius:10px;overflow:hidden;aspect-ratio:3/4}
+    .gallery-grid a img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+    .gallery-grid a:hover img{transform:scale(1.03)}
+
+    @media(max-width:600px){
+      .section-intro{flex-direction:column;text-align:center}
+      .si-img{width:60px;height:60px}
+      .menu-tabs-wrap{top:68px}
+    }
+  .mob-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.8rem;cursor:pointer;align-self:flex-end;padding:.25rem .5rem;margin-bottom:.5rem;line-height:1;transition:color .2s}
+.mob-close:hover{color:var(--white)}
+
+    .menu-thumb{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;background:var(--beige-mid);display:block;text-decoration:none}
+    .menu-thumb--wide{aspect-ratio:3/2}
+    .menu-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+    .menu-thumb:hover img{transform:scale(1.04)}
+    .menu-thumb-overlay{position:absolute;inset:0;background:rgba(36,64,51,0);display:flex;align-items:center;justify-content:center;transition:background .25s;opacity:0}
+    .menu-thumb:hover .menu-thumb-overlay{background:rgba(36,64,51,.45);opacity:1}
+    .menu-thumb-overlay span{font-size:2rem;color:var(--white);transform:scale(.7);transition:transform .25s}
+    .menu-thumb:hover .menu-thumb-overlay span{transform:scale(1)}
+
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#almuerzo">Saltar al contenido</a>
+<nav class="navbar solid" id="navbar">
+  <a href="index.html" class="navbar-logo-link"><img src="img/logo.png" alt="Green Garden" class="navbar-logo" width="194" height="72" decoding="async"></a>
+  
+  <ul class="nav-links"><li><a href="index.html">Inicio</a></li>
+<li><a href="menu.html" class="active">Menú</a></li>
+<li><a href="playroom.html">Playroom</a></li>
+<li><a href="nosotros.html">Nosotros</a></li><li><a href="tel:02214895239" class="nav-cta">Reservar</a></li></ul>
+  <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobMenu">
+  <a href="index.html" onclick="closeMob()">Inicio</a>
+<a href="menu.html" onclick="closeMob()">Menú</a>
+<a href="playroom.html" onclick="closeMob()">Playroom</a>
+<a href="nosotros.html" onclick="closeMob()">Nosotros</a>
+  <a href="tel:02214895239" class="mob-cta">📞 Reservar: 0221-4895239</a>
+</div>
+
+<div class="page-header">
+  <div class="ph-bg"></div>
+  <div class="ph-content-wrap">
+  <span class="section-label" style="color:var(--sage-pale)">Lo que servimos</span>
+  <h1>Nuestro Menú</h1>
+  <p>Platos caseros con los mejores ingredientes, disponibles en todos los horarios del día.</p>
+  </div>
+</div>
+
+<div class="menu-tabs-wrap">
+  <div class="menu-tabs" role="tablist">
+    <button class="tab-btn active" data-tab="almuerzo" role="tab">🍽️ Almuerzos & Cenas <span class="tab-pill">17 páginas</span></button>
+    <button class="tab-btn" data-tab="merienda" role="tab">☕ Desayunos & Meriendas <span class="tab-pill">4 páginas</span></button>
+    <button class="tab-btn" data-tab="sintacc" role="tab">🌾 Sin TACC <span class="tab-pill tacc">Sin gluten</span></button>
+  </div>
+</div>
+
+<main class="menu-content">
+
+  <div id="almuerzo" class="menu-section-block active">
+    <div class="section-intro">
+      <div class="si-img"><img src="img/almuerzo.webp" alt="Almuerzos"></div>
+      <div class="si-text">
+        <h2>Almuerzos & Cenas</h2>
+        
+      </div>
+    </div>
+    <div class="gallery-grid">
+<a href="img/menu/menu01.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu01.webp" alt="Menú Almuerzos &amp; Cenas — pág. 1" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu02.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu02.webp" alt="Menú Almuerzos &amp; Cenas — pág. 2" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu03.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu03.webp" alt="Menú Almuerzos &amp; Cenas — pág. 3" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu04.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu04.webp" alt="Menú Almuerzos &amp; Cenas — pág. 4" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu05.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu05.webp" alt="Menú Almuerzos &amp; Cenas — pág. 5" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu06.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu06.webp" alt="Menú Almuerzos &amp; Cenas — pág. 6" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu07.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu07.webp" alt="Menú Almuerzos &amp; Cenas — pág. 7" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu08.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu08.webp" alt="Menú Almuerzos &amp; Cenas — pág. 8" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu09.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu09.webp" alt="Menú Almuerzos &amp; Cenas — pág. 9" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu10.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu10.webp" alt="Menú Almuerzos &amp; Cenas — pág. 10" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu11.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu11.webp" alt="Menú Almuerzos &amp; Cenas — pág. 11" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu12.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu12.webp" alt="Menú Almuerzos &amp; Cenas — pág. 12" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu13.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu13.webp" alt="Menú Almuerzos &amp; Cenas — pág. 13" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu14.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu14.webp" alt="Menú Almuerzos &amp; Cenas — pág. 14" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu15.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu15.webp" alt="Menú Almuerzos &amp; Cenas — pág. 15" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu16.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu16.webp" alt="Menú Almuerzos &amp; Cenas — pág. 16" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menu17.webp" class="glightbox menu-thumb" data-gallery="almuerzo"><img src="img/menu/menu17.webp" alt="Menú Almuerzos &amp; Cenas — pág. 17" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+</div>
+  </div>
+
+  <div id="merienda" class="menu-section-block">
+    <div class="section-intro">
+      <div class="si-img"><img src="img/merienda.webp" alt="Meriendas"></div>
+      <div class="si-text">
+        <h2>Desayunos & Meriendas</h2>
+        
+      </div>
+    </div>
+    <div class="gallery-grid">
+<a href="img/menu/merienda01.webp" class="glightbox menu-thumb" data-gallery="merienda"><img src="img/menu/merienda01.webp" alt="Desayunos &amp; Meriendas — pág. 1" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/merienda02.webp" class="glightbox menu-thumb" data-gallery="merienda"><img src="img/menu/merienda02.webp" alt="Desayunos &amp; Meriendas — pág. 2" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/merienda03.webp" class="glightbox menu-thumb" data-gallery="merienda"><img src="img/menu/merienda03.webp" alt="Desayunos &amp; Meriendas — pág. 3" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/merienda04.webp" class="glightbox menu-thumb" data-gallery="merienda"><img src="img/menu/merienda04.webp" alt="Desayunos &amp; Meriendas — pág. 4" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+</div>
+  </div>
+
+  <div id="sintacc" class="menu-section-block">
+    <div class="section-intro">
+      <div class="si-img"><img src="img/sintacc.webp" alt="Menú Sin TACC"></div>
+      <div class="si-text">
+        <div class="tacc-badge-large">✓ Apto Celíacos</div>
+        <h2>Menú Sin TACC</h2>
+        
+      </div>
+    </div>
+    <div class="gallery-grid">
+<a href="img/menu/menutacc01.webp" class="glightbox menu-thumb" data-gallery="sintacc"><img src="img/menu/menutacc01.webp" alt="Menú Sin TACC — pág. 1" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+<a href="img/menu/menutacc02.webp" class="glightbox menu-thumb" data-gallery="sintacc"><img src="img/menu/menutacc02.webp" alt="Menú Sin TACC — pág. 2" loading="lazy"><div class="menu-thumb-overlay"><span>⊕</span></div></a>
+</div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-contact">
+    <strong>Green Garden</strong>
+    <a href="tel:02214895239">📞 0221-489-5239</a>
+    <a href="mailto:greengardenlaplata@gmail.com">✉️ greengardenlaplata@gmail.com</a>
+    <a href="https://instagram.com/greengardenlaplata" target="_blank" rel="noopener">📷 @greengardenlaplata</a>
+  </div>
+  <div class="footer-right">
+    <p>Diag. 74 1618, La Plata, Buenos Aires</p>
+    <p>Lunes a Domingo · 08:00 — 02:00 hs</p>
+    <p style="margin-top:.5rem;font-size:.75rem">© <span data-year>2026</span> Green Garden · Desarrollado por <a href="https://www.martinromerostudio.com.ar" target="_blank" rel="noopener noreferrer">Martin Romero Studio</a></p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+let lightbox = GLightbox({selector:'.glightbox',loop:true,touchNavigation:true,keyboardNavigation:true,closeOnOutsideClick:true});
+
+const tabs = document.querySelectorAll('.tab-btn');
+const blocks = document.querySelectorAll('.menu-section-block');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    blocks.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    lightbox = GLightbox({selector:'.glightbox',loop:true,touchNavigation:true,keyboardNavigation:true,closeOnOutsideClick:true});
+  });
+});
+
+document.getElementById('ham').addEventListener('click',()=>{
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+function closeMob(){
+  document.getElementById('mobMenu').classList.remove('open');
+}
+
+// Activar tab según hash de la URL (ej: menu.html#merienda)
+function activarTabPorHash() {
+  const hash = window.location.hash.replace('#', '');
+  const validTabs = ['almuerzo', 'merienda', 'sintacc'];
+  if (hash && validTabs.includes(hash)) {
+    tabs.forEach(t => t.classList.remove('active'));
+    blocks.forEach(b => b.classList.remove('active'));
+    const targetBtn = document.querySelector('.tab-btn[data-tab="' + hash + '"]');
+    const targetBlock = document.getElementById(hash);
+    if (targetBtn) targetBtn.classList.add('active');
+    if (targetBlock) {
+      targetBlock.classList.add('active');
+      targetBlock.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+    lightbox = GLightbox({selector:'.glightbox',loop:true,touchNavigation:true,keyboardNavigation:true,closeOnOutsideClick:true});
+  }
+}
+document.addEventListener('DOMContentLoaded', activarTabPorHash);
+document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
+</script>
+</body>
+</html>
