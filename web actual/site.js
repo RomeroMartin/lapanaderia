@@ -1,3 +1,4 @@
+// Green Garden — comportamiento común del sitio (menú mobile, estado del local, año).
 (function () {
   'use strict';
 
