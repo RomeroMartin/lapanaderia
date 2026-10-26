@@ -27,16 +27,17 @@
 
 /* ── Menú ── */
 .menu-hero .watermark{right:-10%;top:-20%}
-.menu-tabs-bar{position:sticky;top:var(--header-h);z-index:15;background:var(--ivory);border-bottom:1px solid var(--line)}
-.menu-tabs{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
-@media (min-width:900px){.menu-tabs{justify-content:center}}
-.menu-tabs::-webkit-scrollbar{display:none}
-.tab{flex:none;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;background:transparent;color:var(--green);border:1px solid var(--green);border-radius:2px;font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.menu-tabs-bar{background:var(--ivory);border-bottom:1px solid var(--line)}
+.menu-tabs{display:flex;flex-direction:column;gap:8px;padding-block:16px}
+@media (min-width:900px){.menu-tabs-bar{position:sticky;top:var(--header-h);z-index:15}.menu-tabs{flex-direction:row;justify-content:center;padding-block:12px}}
+.tab{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:46px;padding:0 18px;background:transparent;color:var(--green);border:1px solid var(--green);border-radius:2px;font:inherit;font-size:13px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+@media (min-width:900px){.tab{white-space:nowrap}}
 .tab small{font-family:var(--f-italic);font-weight:300;font-size:15px;letter-spacing:0;text-transform:none;color:var(--gold-ink)}
 .tab[aria-selected="true"]{background:var(--green);color:var(--ivory)}
 .tab[aria-selected="true"] small{color:var(--gold)}
 .menu-panel[hidden]{display:none}
-.menu-panel{scroll-margin-top:calc(var(--header-h) + 72px)}
+.menu-panel{scroll-margin-top:var(--header-h)}
+@media (min-width:900px){.menu-panel{scroll-margin-top:calc(var(--header-h) + 72px)}}
 .panel-inner{padding-block:clamp(32px,5vw,64px) clamp(56px,8vw,104px);display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)}
 .cat-banner{display:grid;grid-template-columns:minmax(0,1fr);background:var(--green);color:var(--ivory)}
 .cat-banner-photo{aspect-ratio:16/9;overflow:hidden;background:var(--green-2)}
