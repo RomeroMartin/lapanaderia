@@ -247,7 +247,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
 .popup-overlay.activo{opacity:1;pointer-events:all}
 .popup-contenido{position:relative;max-width:92vw;max-height:85vh;animation:popupEntrada .4s ease;display:flex;align-items:center;justify-content:center}
 .popup-imagen{width:auto;max-width:100%;height:auto;max-height:85vh;border:1px solid var(--gold);border-radius:2px;object-fit:contain}
-.popup-cerrar{position:absolute;top:-15px;right:-15px;background:var(--gold);color:var(--green);border:none;width:44px;height:44px;border-radius:2px;font-size:26px;line-height:1;cursor:pointer;transition:background .2s ease}
+.popup-cerrar{position:absolute;top:-15px;right:-15px;background:var(--gold);color:var(--green);border:none;width:32px;height:32px;border-radius:2px;font-size:20px;line-height:1;cursor:pointer;transition:background .2s ease}
 .popup-cerrar:hover{background:var(--ivory)}
 @keyframes popupEntrada{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 @media (max-width:600px){.popup-contenido{max-width:95vw;max-height:80vh}.popup-imagen{max-height:80vh}.popup-cerrar{top:6px;right:6px}}
