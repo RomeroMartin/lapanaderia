@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>La Panadería de Green Garden</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:"GG Display";src:url("/_blob/b5c5d8af533920afa32919ad848c00be") format("opentype");font-display:swap}
+@font-face{font-family:"GG Sans";src:url("/_blob/c258e0b84fe5c8021801fe586f04bdc4") format("opentype");font-display:swap}
+@font-face{font-family:"GG Italic";src:url("/_blob/329f0a2a481caeae8a951401c39e1ec8") format("opentype");font-display:swap}
+body{margin:0}
+a{color:#7A5C22}a:hover{color:#002f2a}
+.gg-root{container-type:inline-size}
+.gg-desk{display:none !important}
+.gg-prod{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@container (min-width: 900px){
+.gg-desk{display:flex !important}
+.gg-mob{display:none !important}
+.gg-prod{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+}
+.gg-root a:focus-visible,.gg-root button:focus-visible{outline:2px solid #d6b36a;outline-offset:3px}
+</style>
+</helmet>
+<div class="gg-root" style="font-family: 'GG Sans', 'Myriad Pro', 'Segoe UI', sans-serif; color: #141414; background: #F6F1E6; min-width: 0; line-height: 1.5">
+
+<header style="position: sticky; top: 0; z-index: 20; background: #002f2a; border-bottom: 1px solid rgba(214,179,106,0.28)">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5cqi, 48px); height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#inicio" aria-label="La Panadería de Green Garden, ir al inicio" style="display: flex; align-items: center; gap: 12px; flex: none; text-decoration: none">
+<img src="/_blob/68c5f2400d588aae3f8ba307559acf25" alt="" style="height: 42px; width: auto; display: block">
+<span style="display: flex; flex-direction: column; line-height: 1">
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 20px; letter-spacing: 0.06em; color: #F6F1E6">La Panadería</span>
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 14px; color: #d6b36a; margin-top: 3px">de Green Garden</span>
+</span>
+</a>
+<nav class="gg-desk" aria-label="Principal" style="align-items: center; gap: 32px">
+<a href="#mirada" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">La panadería</a>
+<a href="#horneamos" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Qué horneamos</a>
+<a href="#vereda" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Para llevar</a>
+<a href="#visitanos" style="color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Dónde estamos</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 18px">
+<div class="gg-desk" style="align-items: center; gap: 8px; color: #B9C7C2; font-size: 13px; letter-spacing: 0.04em">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{dotColor}}"></span>
+<span>{{statusText}}</span>
+</div>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2011%20e%2049%20y%2050%20La%20Plata" class="gg-desk" style="align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; background: #d6b36a; color: #002f2a; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">Cómo llegar</a>
+<button type="button" class="gg-mob" onClick="{{toggleMenu}}" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(214,179,106,0.5); border-radius: 2px; color: #F6F1E6; cursor: pointer; padding: 0">
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+</sc-if>
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{ true }}">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg>
+</sc-if>
+</button>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav class="gg-mob" aria-label="Menú móvil" style="display: flex; flex-direction: column; padding: 8px clamp(20px, 5cqi, 48px) 28px; background: #002f2a; border-top: 1px solid rgba(214,179,106,0.2)">
+<a href="#mirada" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 0.06em">La panadería <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="#horneamos" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 0.06em">Qué horneamos <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="#vereda" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 0.06em">Para llevar <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<a href="#visitanos" onClick="{{closeMenu}}" style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; border-bottom: 1px solid rgba(246,241,230,0.12); color: #F6F1E6; text-decoration: none; font-family: 'GG Display', 'GG Sans', sans-serif; text-transform: uppercase; font-size: 24px; letter-spacing: 0.06em">Dónde estamos <span style="color: #d6b36a; font-size: 18px">→</span></a>
+<div style="display: flex; align-items: center; gap: 8px; margin-top: 22px; color: #B9C7C2; font-size: 15px">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: {{dotColor}}"></span>
+<span>{{statusText}} · Todos los días 07:00 — 20:30</span>
+</div>
+</nav>
+</sc-if>
+</header>
+
+<section id="inicio" style="position: relative; overflow: hidden; background: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(48px, 7cqi, 96px) clamp(20px, 5cqi, 48px) clamp(40px, 5cqi, 64px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px">
+<h1 style="margin: 0; width: clamp(240px, 32cqi, 400px)">
+<img src="/_blob/ff2fc5df39e00e46e4bdd3ec9672f738" alt="La Panadería de Green Garden — Alma artesanal" style="width: 100%; height: auto; display: block">
+</h1>
+<p style="margin: 0; max-width: 30em; font-size: clamp(17px, 1.6cqi, 20px); line-height: 1.6; color: #3F3F3A">Pan, facturas y café todos los días. Al lado de Green Garden, desde las siete de la mañana.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%">
+<a href="#horneamos" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px; background: #002f2a; color: #F6F1E6; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px; flex: 1 1 auto; max-width: 260px">Mirá qué hacemos</a>
+<a href="#visitanos" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border: 1px solid #002f2a; color: #002f2a; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px; flex: 1 1 auto; max-width: 220px">Cómo llegar</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; font-size: 14px; color: #3F3F3A">
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 6px; height: 6px; background: #d6b36a; transform: rotate(45deg)"></span>Todos los días 07:00 — 20:30</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><span style="width: 6px; height: 6px; background: #d6b36a; transform: rotate(45deg)"></span>Calle 11 e/ 49 y 50</span>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5cqi, 48px) clamp(56px, 8cqi, 104px)">
+<div style="position: relative; aspect-ratio: 21 / 9; min-height: 220px; background: #E9E1CF; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/ae06817f35f871504c8edf955427840e" alt="" aria-hidden="true" style="width: clamp(48px, 7cqi, 90px); opacity: 0.18">
+<span style="position: absolute; left: 18px; bottom: 16px; color: #5A4A2A; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · Vidriera y mostrador</span>
+<span style="position: absolute; right: 18px; bottom: 14px; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 18px; color: #7A5C22">no hay cocina escondida</span>
+</div>
+</div>
+</section>
+
+<section id="mirada" aria-labelledby="mirada-titulo" style="background: #002f2a; color: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 5cqi, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6cqi, 80px)">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #d6b36a">El obrador, a la vista</span>
+<h2 id="mirada-titulo" style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(32px, 4.4cqi, 52px); line-height: 1.05; letter-spacing: 0.05em">Todo pasa delante tuyo</h2>
+<div style="display: flex; align-items: center; gap: 10px" aria-hidden="true">
+<span style="width: 40px; height: 1px; background: #d6b36a"></span>
+<span style="width: 7px; height: 7px; background: #d6b36a; transform: rotate(45deg)"></span>
+</div>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #C9D3CF">Amasamos y horneamos acá mismo, con equipamiento profesional que nos permite lograr siempre el mismo resultado. Lo que ves en la vidriera salió del horno hoy.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid rgba(214,179,106,0.3); border-bottom: 1px solid rgba(214,179,106,0.3)">
+<li style="padding: 16px 10px 16px 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">I</span>
+<span style="font-size: 14px; line-height: 1.35">Amasado en el local</span>
+</li>
+<li style="padding: 16px 10px; border-left: 1px solid rgba(214,179,106,0.3); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">II</span>
+<span style="font-size: 14px; line-height: 1.35">Horneado del día</span>
+</li>
+<li style="padding: 16px 0 16px 10px; border-left: 1px solid rgba(214,179,106,0.3); display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">III</span>
+<span style="font-size: 14px; line-height: 1.35">Calidad constante</span>
+</li>
+</ul>
+</div>
+<div style="flex: 1 1 400px; min-width: 0">
+<div style="position: relative; aspect-ratio: 4 / 5; max-height: 600px; width: 100%; background: #0b3f39; outline: 1px solid rgba(214,179,106,0.45); outline-offset: -14px; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/68c5f2400d588aae3f8ba307559acf25" alt="" aria-hidden="true" style="width: 22%; opacity: 0.3">
+<span style="position: absolute; left: 28px; top: 28px; color: #B9C7C2; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · Obrador desde la vereda</span>
+<span style="position: absolute; left: 28px; bottom: 26px; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">recién hecho, todos los días</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="horneamos" aria-labelledby="horneamos-titulo" style="background: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9cqi, 128px) clamp(20px, 5cqi, 48px); display: flex; flex-direction: column; gap: clamp(32px, 4cqi, 52px)">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #7A5C22">Del horno a tu mesa</span>
+<h2 id="horneamos-titulo" style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(32px, 4.4cqi, 52px); line-height: 1.05; letter-spacing: 0.05em; color: #002f2a">Qué horneamos</h2>
+<div style="display: flex; align-items: center; gap: 10px" aria-hidden="true">
+<span style="width: 56px; height: 1px; background: #d6b36a"></span>
+<span style="width: 8px; height: 8px; background: #d6b36a; transform: rotate(45deg)"></span>
+<span style="width: 56px; height: 1px; background: #d6b36a"></span>
+</div>
+</div>
+<div class="gg-prod">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="3">
+<article style="display: flex; flex-direction: column; background: #FBF8F1; border: 1px solid #E3D9C3; min-width: 0">
+<div style="position: relative; aspect-ratio: 4 / 3; background: #E9E1CF; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/ae06817f35f871504c8edf955427840e" alt="" aria-hidden="true" style="width: 18%; opacity: 0.16">
+<span style="position: absolute; left: 14px; bottom: 12px; right: 14px; color: #5A4A2A; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · {{p.photo}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 2.6cqi, 32px)">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+<h3 style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: 26px; letter-spacing: 0.05em; color: #002f2a">{{p.title}}</h3>
+<span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 22px; color: #d6b36a">{{p.num}}</span>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #E3D9C3">
+<sc-for list="{{p.items}}" as="it" hint-placeholder-count="4">
+<li style="display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid #E3D9C3; font-size: 16px; color: #141414"><span style="flex: none; width: 6px; height: 6px; background: #d6b36a; transform: rotate(45deg)"></span>{{it}}</li>
+</sc-for>
+</ul>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="vereda" aria-labelledby="vereda-titulo" style="background: #FBF8F1; border-top: 1px solid #E3D9C3">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 5cqi, 48px); display: flex; flex-wrap: wrap-reverse; align-items: center; gap: clamp(40px, 6cqi, 80px)">
+<div style="flex: 1 1 380px; min-width: 0">
+<div style="position: relative; aspect-ratio: 1 / 1; max-height: 520px; background: #E3D9C3; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/ae06817f35f871504c8edf955427840e" alt="" aria-hidden="true" style="width: 20%; opacity: 0.18">
+<span style="position: absolute; left: 18px; top: 16px; color: #5A4A2A; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · Café para llevar</span>
+<span style="position: absolute; left: 18px; bottom: 14px; font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 18px; color: #7A5C22">a cualquier hora del día</span>
+</div>
+</div>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #7A5C22">Para llevar</span>
+<h2 id="vereda-titulo" style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 4cqi, 48px); line-height: 1.06; letter-spacing: 0.05em; color: #002f2a">Un café y algo rico para el camino</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3F3F3A">Pedís, retirás y seguís viaje. Es el mismo café que servimos en Green Garden.</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: #E3D9C3; border: 1px solid #E3D9C3">
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 18px 14px; background: #FBF8F1"><span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">I</span><span style="font-size: 15px">Pedís</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 18px 14px; background: #FBF8F1"><span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">II</span><span style="font-size: 15px">Retirás</span></li>
+<li style="display: flex; flex-direction: column; gap: 4px; padding: 18px 14px; background: #FBF8F1"><span style="font-family: 'GG Display', 'GG Sans', sans-serif; font-size: 20px; color: #d6b36a">III</span><span style="font-size: 15px">Seguís viaje</span></li>
+</ol>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="gg-titulo" style="position: relative; overflow: hidden; background: #002f2a; color: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 5cqi, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: clamp(40px, 6cqi, 80px)">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 18px">
+<img src="/_blob/68c5f2400d588aae3f8ba307559acf25" alt="La Panadería" style="height: 64px; width: auto">
+<span style="width: 1px; height: 52px; background: rgba(214,179,106,0.5)" aria-hidden="true"></span>
+<img src="/_blob/22f745a6e3ccf9dfee36aa17c22016fe" alt="Green Garden" style="height: 64px; width: auto">
+</div>
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #d6b36a">puerta con puerta</span>
+<h2 id="gg-titulo" style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 4cqi, 48px); line-height: 1.06; letter-spacing: 0.05em">Al lado de Green Garden</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #C9D3CF">La panadería es parte de Green Garden: la misma cocina y la misma calidad, ahora también para llevar.</p>
+<a href="https://www.greengarden.com.ar" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border: 1px solid rgba(214,179,106,0.6); color: #F6F1E6; text-decoration: none; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">Ir a Green Garden
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+</a>
+</div>
+<div style="flex: 1 1 420px; min-width: 0">
+<div style="position: relative; aspect-ratio: 16 / 10; background: #0b3f39; outline: 1px solid rgba(214,179,106,0.45); outline-offset: -14px; display: flex; align-items: center; justify-content: center">
+<img src="/_blob/a9ec58f443031172738a3a49fead2f84" alt="" aria-hidden="true" style="width: 22%; opacity: 0.3">
+<span style="position: absolute; left: 28px; bottom: 26px; color: #B9C7C2; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase">Foto · Las dos fachadas juntas</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="visitanos" aria-labelledby="visita-titulo" style="background: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9cqi, 128px) clamp(20px, 5cqi, 48px); display: flex; flex-wrap: wrap; gap: clamp(40px, 6cqi, 72px)">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<span style="font-family: 'GG Italic', 'GG Sans', sans-serif; font-size: 19px; color: #7A5C22">en el corazón de la ciudad</span>
+<h2 id="visita-titulo" style="margin: 0; font-family: 'GG Display', 'GG Sans', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(32px, 4.4cqi, 52px); line-height: 1.05; letter-spacing: 0.05em; color: #002f2a">Dónde estamos</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E3D9C3">
+<div style="display: flex; align-items: center; gap: 16px; min-height: 68px; border-bottom: 1px solid #E3D9C3">
+<span style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #002f2a; color: #d6b36a; border-radius: 50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7A5C22">Dirección</span><span style="font-size: 18px">Calle 11 e/ 49 y 50, La Plata</span></span>
+</div>
+<div style="display: flex; align-items: center; gap: 16px; min-height: 68px; border-bottom: 1px solid #E3D9C3">
+<span style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #002f2a; color: #d6b36a; border-radius: 50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7A5C22">Horario</span><span style="font-size: 18px">Lunes a domingo · 07:00 — 20:30</span></span>
+</div>
+<a href="tel:+542214000000" style="display: flex; align-items: center; gap: 16px; min-height: 68px; border-bottom: 1px solid #E3D9C3; color: #141414; text-decoration: none">
+<span style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #002f2a; color: #d6b36a; border-radius: 50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span>
+<span style="display: flex; flex-direction: column"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7A5C22">Teléfono</span><span style="font-size: 18px">0221 400-0000</span></span>
+</a>
+<a href="https://instagram.com/" style="display: flex; align-items: center; gap: 16px; min-height: 68px; border-bottom: 1px solid #E3D9C3; color: #141414; text-decoration: none">
+<span style="flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #002f2a; color: #d6b36a; border-radius: 50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6"></circle></svg></span>
+<span style="display: flex; flex-direction: column; min-width: 0"><span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7A5C22">Instagram</span><span style="font-size: 18px; overflow-wrap: anywhere">@lapanaderiadegreengarden</span></span>
+</a>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="position: relative; aspect-ratio: 4 / 3; background: #E9E1CF; border: 1px solid #E3D9C3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 16px">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#002f2a" stroke-width="1.3" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+<span style="font-size: 15px; color: #3F3F3A">Mapa embebido · Calle 11 e/ 49 y 50</span>
+</div>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2011%20e%2049%20y%2050%20La%20Plata" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 0 22px; background: #002f2a; color: #F6F1E6; text-decoration: none; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; border-radius: 2px">Abrir en Google Maps
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+</a>
+</div>
+</div>
+</section>
+
+<footer style="background: #000000; color: #F6F1E6">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(56px, 7cqi, 88px) clamp(20px, 5cqi, 48px) 28px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px; justify-content: space-between; align-items: flex-start">
+<img src="/_blob/047b02dbfae616a1f54768f7406ae5e1" alt="La Panadería de Green Garden" style="width: 210px; height: auto; display: block">
+<div style="flex: 1 1 420px; max-width: 640px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px">
+<nav aria-label="Pie de página" style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">La panadería</span>
+<a href="#mirada" style="color: #F6F1E6; text-decoration: none; font-size: 15px">El obrador</a>
+<a href="#horneamos" style="color: #F6F1E6; text-decoration: none; font-size: 15px">Qué horneamos</a>
+<a href="#vereda" style="color: #F6F1E6; text-decoration: none; font-size: 15px">Para llevar</a>
+<a href="#visitanos" style="color: #F6F1E6; text-decoration: none; font-size: 15px">Dónde estamos</a>
+</nav>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">Visitanos</span>
+<span style="font-size: 15px; line-height: 1.5; color: #D9D4C8">Calle 11 e/ 49 y 50<br>La Plata, Buenos Aires</span>
+<span style="font-size: 15px; line-height: 1.5; color: #D9D4C8">Todos los días<br>07:00 — 20:30</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #d6b36a">Parte de</span>
+<a href="https://www.greengarden.com.ar" style="display: block"><img src="/_blob/22f745a6e3ccf9dfee36aa17c22016fe" alt="Green Garden" style="width: 120px; height: auto; display: block"></a>
+</div>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 10px" aria-hidden="true">
+<span style="flex: 1 1 auto; height: 1px; background: rgba(214,179,106,0.4)"></span>
+<span style="width: 8px; height: 8px; background: #d6b36a; transform: rotate(45deg)"></span>
+<span style="flex: 1 1 auto; height: 1px; background: rgba(214,179,106,0.4)"></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 13px; color: #A8A397">
+<span>© {{year}} La Panadería de Green Garden.</span>
+<span>Desarrollado por <a href="https://www.martinromerostudio.com.ar" style="color: #D9D4C8">Martin Romero Studio</a></span>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { menuOpen: false };
+}
+renderVals() {
+const d = new Date();
+const m = d.getHours() * 60 + d.getMinutes();
+const isOpen = m >= 420 && m < 1230;
+const menuOpen = this.state.menuOpen;
+return {
+menuOpen: menuOpen,
+menuClosed: !menuOpen,
+menuLabel: menuOpen ? 'Cerrar menú' : 'Abrir menú',
+toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+closeMenu: () => this.setState({ menuOpen: false }),
+statusText: isOpen ? 'Abierto ahora' : 'Cerrado · abre 07:00',
+dotColor: isOpen ? '#6FCF97' : '#C9A24E',
+products: [
+{ num: 'I', title: 'Panes', photo: 'Hogaza de masa madre', items: ['Masa madre', 'Pan de campo', 'Baguettes', 'Pan de molde'] },
+{ num: 'II', title: 'Facturas', photo: 'Medialunas recién horneadas', items: ['Medialunas de manteca', 'Croissants', 'Vigilantes', 'Las de siempre'] },
+{ num: 'III', title: 'Pastelería', photo: 'Vitrina de pastelería', items: ['Tortas', 'Tartas', 'Budines', 'Alfajores caseros'] }
+],
+year: d.getFullYear()
+};
+}
+}
+</script>
+</body>
+</html>
