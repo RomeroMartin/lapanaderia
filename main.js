@@ -27,25 +27,28 @@
     if (e.matches) setMenu(false);
   });
 
-  // Abierto / cerrado (07:00 a 20:30, hora de Buenos Aires)
-  var OPEN = 7 * 60, CLOSE = 20 * 60 + 30;
+  // Abierto / cerrado (martes a domingo 07:00 a 23:00, lunes cerrado; hora de Buenos Aires)
+  var OPEN = 7 * 60, CLOSE = 23 * 60;
   var fmt = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'America/Argentina/Buenos_Aires',
-    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+    weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
   });
 
   function updateStatus() {
     var parts = fmt.formatToParts(new Date());
-    var h = 0, m = 0;
+    var h = 0, m = 0, day = '';
     parts.forEach(function (p) {
       if (p.type === 'hour') h = parseInt(p.value, 10);
       if (p.type === 'minute') m = parseInt(p.value, 10);
+      if (p.type === 'weekday') day = p.value;
     });
     var mins = h * 60 + m;
-    var open = mins >= OPEN && mins < CLOSE;
+    var monday = day === 'Mon';
+    var open = !monday && mins >= OPEN && mins < CLOSE;
+    var closedText = monday ? 'Cerrado hoy · abre mañana 07:00' : 'Cerrado · abre ' + (day === 'Sun' && mins >= CLOSE ? 'el martes ' : '') + '07:00';
     document.querySelectorAll('[data-status]').forEach(function (el) {
       el.classList.toggle('is-open', open);
-      el.querySelector('[data-status-text]').textContent = open ? 'Abierto ahora' : 'Cerrado · abre 07:00';
+      el.querySelector('[data-status-text]').textContent = open ? 'Abierto ahora' : closedText;
     });
   }
   updateStatus();
