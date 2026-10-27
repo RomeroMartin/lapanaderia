@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Panadería de Green Garden</title>
+<meta name="description" content="Pan, facturas y café todos los días. La Panadería de Green Garden, Calle 11 e/ 49 y 50, La Plata. Abierto de 07:00 a 20:30.">
+<meta name="theme-color" content="#002f2a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Panadería de Green Garden">
+<meta property="og:description" content="Pan, facturas y café todos los días. Al lado de Green Garden, desde las siete de la mañana.">
+<meta property="og:image" content="assets/img/pan-logo.png">
+<link rel="icon" type="image/png" href="assets/img/pan-iso.png">
+<link rel="preload" href="assets/fonts/GreenFont-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/MyriadPro-Regular.otf" as="font" type="font/otf" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#inicio">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="header-in">
+    <a class="brand" href="#inicio" aria-label="La Panadería de Green Garden, ir al inicio">
+      <img src="assets/img/pan-iso.png" alt="" width="42" height="42">
+      <span class="brand-txt">
+        <span class="brand-name">La Panadería</span>
+        <span class="brand-sub">de Green Garden</span>
+      </span>
+    </a>
+    <nav class="nav-desk" aria-label="Principal">
+      <a href="#mirada">La panadería</a>
+      <a href="#horneamos">Qué horneamos</a>
+      <a href="#vereda">Para llevar</a>
+      <a href="#visitanos">Dónde estamos</a>
+    </nav>
+    <div class="header-right">
+      <div class="status desk" data-status role="status">
+        <span class="dot" aria-hidden="true"></span><span data-status-text>Abierto ahora</span>
+      </div>
+      <a class="btn btn-gold cta-desk" href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2011%20e%2049%20y%2050%20La%20Plata" target="_blank" rel="noopener">Cómo llegar</a>
+      <button type="button" class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-mob">
+        <svg class="ico-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <svg class="ico-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mob" id="nav-mob" aria-label="Menú móvil">
+    <a href="#mirada">La panadería <span>→</span></a>
+    <a href="#horneamos">Qué horneamos <span>→</span></a>
+    <a href="#vereda">Para llevar <span>→</span></a>
+    <a href="#visitanos">Dónde estamos <span>→</span></a>
+    <div class="status" data-status><span class="dot" aria-hidden="true"></span><span><span data-status-text>Abierto ahora</span> · Todos los días 07:00 — 20:30</span></div>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio" class="hero">
+    <div class="wrap hero-top">
+      <h1><img src="assets/img/pan-logo.png" alt="La Panadería de Green Garden — Alma artesanal" width="400" height="400"></h1>
+      <p class="hero-lead">Pan, facturas y café todos los días. Al lado de Green Garden, desde las siete de la mañana.</p>
+      <div class="hero-btns">
+        <a class="btn btn-solid" href="#horneamos">Mirá qué hacemos</a>
+        <a class="btn btn-line" href="#visitanos">Cómo llegar</a>
+      </div>
+      <div class="hero-meta">
+        <span><i class="rombo"></i>Todos los días 07:00 — 20:30</span>
+        <span><i class="rombo"></i>Calle 11 e/ 49 y 50</span>
+      </div>
+    </div>
+    <div class="wrap hero-photo">
+      <figure class="photo photo-wide">
+        <img class="ph" src="assets/img/pan-iso-green.png" alt="" aria-hidden="true">
+        <span class="tag">Foto · Vidriera y mostrador</span>
+        <figcaption class="quote">no hay cocina escondida</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mirada" class="dark on-dark" aria-labelledby="mirada-titulo">
+    <div class="wrap section split">
+      <div class="col-text">
+        <span class="eyebrow">El obrador, a la vista</span>
+        <h2 id="mirada-titulo">Todo pasa delante tuyo</h2>
+        <div class="divider left" aria-hidden="true"><i></i></div>
+        <p class="lead">Amasamos y horneamos acá mismo, con equipamiento profesional que nos permite lograr siempre el mismo resultado. Lo que ves en la vidriera salió del horno hoy.</p>
+        <ul class="pasos">
+          <li><span class="num">I</span>Amasado en el local</li>
+          <li><span class="num">II</span>Horneado del día</li>
+          <li><span class="num">III</span>Calidad constante</li>
+        </ul>
+      </div>
+      <div class="col-media">
+        <figure class="photo photo-dark photo-obrador">
+          <img class="ph" src="assets/img/pan-iso.png" alt="" aria-hidden="true">
+          <span class="tag">Foto · Obrador desde la vereda</span>
+          <figcaption class="quote">recién hecho, todos los días</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="horneamos" aria-labelledby="horneamos-titulo">
+    <div class="wrap horneamos">
+      <div class="head-center">
+        <span class="eyebrow">Del horno a tu mesa</span>
+        <h2 id="horneamos-titulo">Qué horneamos</h2>
+        <div class="divider" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="prod">
+        <article class="card">
+          <figure class="photo"><img class="ph" src="assets/img/pan-iso-green.png" alt="" aria-hidden="true"><span class="tag">Foto · Hogaza de masa madre</span></figure>
+          <div class="card-body">
+            <div class="card-head"><h3>Panes</h3><span class="num" aria-hidden="true">I</span></div>
+            <ul class="lista">
+              <li><i class="rombo"></i>Masa madre</li>
+              <li><i class="rombo"></i>Pan de campo</li>
+              <li><i class="rombo"></i>Baguettes</li>
+              <li><i class="rombo"></i>Pan de molde</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card">
+          <figure class="photo"><img class="ph" src="assets/img/pan-iso-green.png" alt="" aria-hidden="true"><span class="tag">Foto · Medialunas recién horneadas</span></figure>
+          <div class="card-body">
+            <div class="card-head"><h3>Facturas</h3><span class="num" aria-hidden="true">II</span></div>
+            <ul class="lista">
+              <li><i class="rombo"></i>Medialunas de manteca</li>
+              <li><i class="rombo"></i>Croissants</li>
+              <li><i class="rombo"></i>Vigilantes</li>
+              <li><i class="rombo"></i>Las de siempre</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card">
+          <figure class="photo"><img class="ph" src="assets/img/pan-iso-green.png" alt="" aria-hidden="true"><span class="tag">Foto · Vitrina de pastelería</span></figure>
+          <div class="card-body">
+            <div class="card-head"><h3>Pastelería</h3><span class="num" aria-hidden="true">III</span></div>
+            <ul class="lista">
+              <li><i class="rombo"></i>Tortas</li>
+              <li><i class="rombo"></i>Tartas</li>
+              <li><i class="rombo"></i>Budines</li>
+              <li><i class="rombo"></i>Alfajores caseros</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="vereda" class="vereda" aria-labelledby="vereda-titulo">
+    <div class="wrap section split">
+      <div class="col-media">
+        <figure class="photo photo-cafe">
+          <img class="ph" src="assets/img/pan-iso-green.png" alt="" aria-hidden="true">
+          <span class="tag">Foto · Café para llevar</span>
+          <figcaption class="quote">a cualquier hora del día</figcaption>
+        </figure>
+      </div>
+      <div class="col-text">
+        <span class="eyebrow">Para llevar</span>
+        <h2 id="vereda-titulo">Un café y algo rico para el camino</h2>
+        <p class="lead">Pedís, retirás y seguís viaje. Es el mismo café que servimos en Green Garden.</p>
+        <ol class="pasos">
+          <li><span class="num">I</span>Pedís</li>
+          <li><span class="num">II</span>Retirás</li>
+          <li><span class="num">III</span>Seguís viaje</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark on-dark gg" aria-labelledby="gg-titulo">
+    <div class="wrap section split">
+      <div class="col-text">
+        <div class="logos">
+          <img src="assets/img/pan-iso.png" alt="La Panadería">
+          <span aria-hidden="true"></span>
+          <img src="assets/img/gg-logo-light.png" alt="Green Garden">
+        </div>
+        <span class="eyebrow">puerta con puerta</span>
+        <h2 id="gg-titulo">Al lado de Green Garden</h2>
+        <p class="lead">La panadería es parte de Green Garden: la misma cocina y la misma calidad, ahora también para llevar.</p>
+        <a class="btn btn-ghost" href="https://www.greengarden.com.ar" target="_blank" rel="noopener">Ir a Green Garden
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+      <div class="col-media">
+        <figure class="photo photo-dark photo-gg">
+          <img class="ph" src="assets/img/gg-iso-gold.png" alt="" aria-hidden="true">
+          <span class="tag">Foto · Las dos fachadas juntas</span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="visitanos" aria-labelledby="visita-titulo">
+    <div class="wrap visitanos">
+      <div class="col-text">
+        <span class="eyebrow">en el corazón de la ciudad</span>
+        <h2 id="visita-titulo">Dónde estamos</h2>
+        <div class="datos">
+          <div class="dato">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><small>Dirección</small><b>Calle 11 e/ 49 y 50, La Plata</b></span>
+          </div>
+          <div class="dato">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span><small>Horario</small><b>Lunes a domingo · 07:00 — 20:30</b></span>
+          </div>
+          <!-- TODO: confirmar teléfono real con el cliente (0221 400-0000 parece de relleno) -->
+          <a class="dato" href="tel:+542214000000">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <span><small>Teléfono</small><b>0221 400-0000</b></span>
+          </a>
+          <!-- TODO: reemplazar por la URL real del perfil de Instagram -->
+          <a class="dato" href="https://instagram.com/" target="_blank" rel="noopener">
+            <span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></span>
+            <span><small>Instagram</small><b>@lapanaderiadegreengarden</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="mapa-col">
+        <div class="mapa">
+          <iframe title="Mapa: Calle 11 e/ 49 y 50, La Plata" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Calle%2011%20e%2049%20y%2050%20La%20Plata&amp;output=embed"></iframe>
+        </div>
+        <a class="btn btn-solid btn-map" href="https://www.google.com/maps/search/?api=1&amp;query=Calle%2011%20e%2049%20y%2050%20La%20Plata" target="_blank" rel="noopener">Abrir en Google Maps
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d6b36a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-in">
+    <div class="foot-top">
+      <img src="assets/img/pan-logo-light.png" alt="La Panadería de Green Garden" width="210" height="210">
+      <div class="foot-cols">
+        <nav class="foot-col" aria-label="Pie de página">
+          <h3>La panadería</h3>
+          <a href="#mirada">El obrador</a>
+          <a href="#horneamos">Qué horneamos</a>
+          <a href="#vereda">Para llevar</a>
+          <a href="#visitanos">Dónde estamos</a>
+        </nav>
+        <div class="foot-col">
+          <h3>Visitanos</h3>
+          <span>Calle 11 e/ 49 y 50<br>La Plata, Buenos Aires</span>
+          <span>Todos los días<br>07:00 — 20:30</span>
+        </div>
+        <div class="foot-col">
+          <h3>Parte de</h3>
+          <a href="https://www.greengarden.com.ar" target="_blank" rel="noopener"><img src="assets/img/gg-logo-light.png" alt="Green Garden"></a>
+        </div>
+      </div>
+    </div>
+    <div class="divider full" aria-hidden="true"><i></i></div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> La Panadería de Green Garden.</span>
+      <span>Desarrollado por <a href="https://www.martinromerostudio.com.ar" target="_blank" rel="noopener">Martin Romero Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
