@@ -8,7 +8,7 @@ public/            ← lo que se publica
   styles.css
   main.js
   assets/{img,fonts}
-  robots.txt  sitemap.xml  _headers
+  robots.txt  _headers
 wrangler.jsonc     ← config de Cloudflare Workers (assets de ./public)
 ```
 
@@ -18,9 +18,12 @@ cd public && python3 -m http.server 8000
 ```
 
 ## Deploy (Cloudflare Workers)
-Conectar este repo en Cloudflare con el worker `lapanaderia`. Comando de deploy: `npx wrangler deploy` (sin build).
+Conectar este repo en un proyecto de Cloudflare Workers. Comando de deploy: `npx wrangler deploy` (sin build). El `name` de `wrangler.jsonc` debe coincidir con el nombre del proyecto.
 
 ## Pendientes del cliente
 - Teléfono real (hoy `0221 400-0000`) y URL real de Instagram, en `public/index.html`.
 - Fotos reales (hoy placeholders con el isotipo).
-- Si se usa dominio propio: actualizar `canonical`, `og:url`, `og:image`, el JSON-LD y `robots.txt`/`sitemap.xml`.
+- Al vincular el dominio propio: agregar `canonical`, `og:url` y `og:image` (URL absoluta; imagen en `public/assets/img/og-image.jpg`) en `public/index.html`, `url` e `image` en el JSON-LD, y crear `sitemap.xml` + línea `Sitemap:` en `robots.txt`.
+
+## Imágenes
+Siempre en formato `.webp` dentro de `public/assets/img/`.
