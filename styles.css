@@ -1,5 +1,6 @@
 /* La Panadería de Green Garden — estilos */
 @font-face{font-family:"GG Display";src:url("assets/fonts/GreenFont-Regular.woff2") format("woff2");font-display:swap}
+@font-face{font-family:"GG Display";src:url("assets/fonts/GreenFont-Numeros.woff2") format("woff2");font-display:swap;unicode-range:U+0030-0039}
 @font-face{font-family:"GG Sans";src:url("assets/fonts/MyriadPro-Regular.woff2") format("woff2");font-display:swap}
 @font-face{font-family:"GG Italic";src:url("assets/fonts/MyriadPro-LightSemiCnIt.woff2") format("woff2");font-display:swap}
 
@@ -103,8 +104,11 @@ h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;
 .hero-lead{margin:0;max-width:30em;font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:var(--tinta-2)}
 .hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%}
 .hero-btns .btn{flex:1 1 auto;max-width:260px}
-.hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;font-size:14px;color:var(--tinta-2)}
-.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;max-width:640px;margin-top:8px;border-top:1px solid var(--linea)}
+.hero-meta .dato-num{padding:20px 6px 0;text-align:center}
+.hero-meta .dato-num+.dato-num{border-left:1px solid var(--linea)}
+.hero-meta strong{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.03em;line-height:1;white-space:nowrap;font-size:clamp(17px,5.2vw,40px);color:var(--verde)}
+.hero-meta small{display:block;margin-top:8px;font-size:13px;letter-spacing:.06em;color:var(--tinta-2)}
 .hero-photo{padding-bottom:clamp(56px,8vw,104px)}
 
 /* ---------- foto / placeholder ---------- */
