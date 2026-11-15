@@ -179,8 +179,8 @@ h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;
 .logos img{height:64px;width:auto}
 .logos span{width:1px;height:52px;background:rgba(214,179,106,.5)}
 .gg .btn{align-self:flex-start}
-.photo-gg{aspect-ratio:16/10}
-.photo-gg .tag{bottom:26px}
+.photo-gg{aspect-ratio:4/5;max-height:600px;width:100%}
+.photo-gg img.cover{object-position:50% 45%}
 
 /* visitanos */
 .visitanos{padding-block:clamp(64px,9vw,128px);display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,72px)}

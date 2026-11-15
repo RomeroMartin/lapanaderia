@@ -22,7 +22,7 @@ Conectar este repo en un proyecto de Cloudflare Workers. Comando de deploy: `npx
 
 ## Pendientes del cliente
 - Teléfono real (hoy `0221 400-0000`) y URL real de Instagram, en `index.html`.
-- Fotos pendientes: café para llevar y Las dos fachadas juntas (puerta con puerta).
+- Foto pendiente: café para llevar.
 - Al vincular el dominio propio: agregar `canonical`, `og:url` y `og:image` (URL absoluta; imagen en `assets/img/og-image.jpg`) en `index.html`, `url` e `image` en el JSON-LD, y crear `sitemap.xml` + línea `Sitemap:` en `robots.txt`.
 
 ## Imágenes
