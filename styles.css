@@ -117,9 +117,8 @@ h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;
 .photo img.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .photo .tag{position:absolute;color:#5A4A2A;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .photo .quote{position:absolute;font-family:var(--italic);font-size:18px;color:#6B4F1C}
-.photo-wide{aspect-ratio:16/10;width:100%;max-height:640px}
-.photo-wide img.cover{object-position:50% 38%}
-@media (min-width:900px){.photo-wide{aspect-ratio:16/9}.photo-wide img.cover{object-position:50% 10%}}
+.photo-wide{aspect-ratio:4/5;width:100%;max-width:600px;margin-inline:auto}
+.photo-wide img.cover{object-position:50% 0}
 .photo-wide .tag{left:18px;bottom:16px}
 .photo-wide .quote{right:18px;bottom:14px}
 .photo-dark{background:var(--verde-2);outline:1px solid rgba(214,179,106,.45);outline-offset:-14px}
