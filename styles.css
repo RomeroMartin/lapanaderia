@@ -164,10 +164,8 @@ h2{margin:0;font-family:var(--display);font-weight:400;text-transform:uppercase;
 .vereda .split{flex-wrap:wrap-reverse}
 .vereda .col-media{flex-basis:380px}
 .vereda h2{font-size:clamp(30px,4vw,48px);line-height:1.06}
-.photo-cafe{aspect-ratio:1/1;max-height:520px;background:var(--linea)}
-.photo-cafe img.ph{width:20%}
-.photo-cafe .tag{left:18px;top:16px}
-.photo-cafe .quote{left:18px;bottom:14px}
+.photo-cafe{aspect-ratio:4/5;max-height:560px;width:100%;background:var(--linea)}
+.photo-cafe img.cover{object-position:50% 0}
 .vereda .pasos{gap:1px;background:var(--linea);border:1px solid var(--linea)}
 .vereda .pasos li{background:var(--crema-2);border-left:0;padding:18px 14px;gap:4px;font-size:15px}
 .vereda .pasos li:first-child{padding-left:14px}
