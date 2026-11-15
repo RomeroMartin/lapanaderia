@@ -21,7 +21,6 @@ python3 -m http.server 8000
 Conectar este repo en un proyecto de Cloudflare Workers. Comando de deploy: `npx wrangler deploy` (sin build). El `name` de `wrangler.jsonc` debe coincidir con el nombre del proyecto.
 
 ## Pendientes del cliente
-- Teléfono real (hoy `0221 400-0000`) y URL real de Instagram, en `index.html`.
 - Al vincular el dominio propio: agregar `canonical`, `og:url` y `og:image` (URL absoluta; imagen en `assets/img/og-image.jpg`) en `index.html`, `url` e `image` en el JSON-LD, y crear `sitemap.xml` + línea `Sitemap:` en `robots.txt`.
 
 ## Imágenes
