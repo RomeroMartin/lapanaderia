@@ -21,8 +21,5 @@ python3 -m http.server 8000
 Cada merge a `main` se publica automáticamente (Workers Builds, repo vinculado en Cloudflare).
 Conectar este repo en un proyecto de Cloudflare Workers. Comando de deploy: `npx wrangler deploy` (sin build). El `name` de `wrangler.jsonc` debe coincidir con el nombre del proyecto.
 
-## Pendientes del cliente
-- Al vincular el dominio propio: agregar `canonical`, `og:url` y `og:image` (URL absoluta; imagen en `assets/img/og-image.jpg`) en `index.html`, `url` e `image` en el JSON-LD, y crear `sitemap.xml` + línea `Sitemap:` en `robots.txt`.
-
 ## Imágenes
 Siempre en formato `.webp` dentro de `assets/img/`.
