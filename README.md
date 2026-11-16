@@ -18,6 +18,7 @@ python3 -m http.server 8000
 ```
 
 ## Deploy (Cloudflare Workers)
+Cada merge a `main` se publica automáticamente (Workers Builds, repo vinculado en Cloudflare).
 Conectar este repo en un proyecto de Cloudflare Workers. Comando de deploy: `npx wrangler deploy` (sin build). El `name` de `wrangler.jsonc` debe coincidir con el nombre del proyecto.
 
 ## Pendientes del cliente
