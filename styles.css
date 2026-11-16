@@ -208,5 +208,12 @@ a.dato:hover{color:var(--dorado-txt)}
 .foot-col img{width:120px;height:auto}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:13px;color:#A8A397}
 .foot-bottom a{color:#D9D4C8}
+@media (max-width:639px){
+  .foot-top{flex-direction:column;align-items:center}
+  .foot-cols{width:100%;flex:none;grid-template-columns:repeat(2,minmax(0,1fr));text-align:center}
+  .foot-col{align-items:center}
+  .foot-col:last-child{grid-column:1/-1;gap:14px}
+  .foot-bottom{flex-direction:column;align-items:center;text-align:center}
+}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
